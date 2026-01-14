@@ -14,7 +14,7 @@ This guide will help you push the scRNA-seq pipeline to GitHub and set up the re
 gh auth login
 
 # Create repository
-cd /Users/rajaishaqnabikhan/.gemini/antigravity/scratch/scrnaseq_pipeline
+cd /path/to/scrnaseq_pipeline
 gh repo create scrnaseq_pipeline --public --source=. --remote=origin --push
 
 # This will:
@@ -35,7 +35,7 @@ gh repo create scrnaseq_pipeline --public --source=. --remote=origin --push
 Then push your local repository:
 
 ```bash
-cd /Users/rajaishaqnabikhan/.gemini/antigravity/scratch/scrnaseq_pipeline
+cd /path/to/scrnaseq_pipeline
 
 # Add remote
 git remote add origin https://github.com/YOUR_USERNAME/scrnaseq_pipeline.git
@@ -165,8 +165,8 @@ After creating the repository, update these placeholders in README.md:
 
 ```bash
 # Replace YOUR_USERNAME with your actual GitHub username
-sed -i '' 's/yourusername/YOUR_ACTUAL_USERNAME/g' README.md
-sed -i '' 's/your.email@example.com/YOUR_EMAIL/g' README.md
+sed -i '' 's/username/YOUR_ACTUAL_USERNAME/g' README.md
+sed -i '' 's/contact@example.com/YOUR_EMAIL/g' README.md
 
 # Commit changes
 git add README.md

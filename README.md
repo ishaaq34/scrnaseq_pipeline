@@ -107,7 +107,7 @@ scrnaseq_pipeline/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/scrnaseq_pipeline.git
+git clone https://github.com/username/scrnaseq_pipeline.git
 cd scrnaseq_pipeline
 
 # Create conda environment
@@ -328,7 +328,7 @@ comparisons:
 
 ## Documentation
 
-Full documentation available at: **[https://yourusername.github.io/scrnaseq_pipeline](https://yourusername.github.io/scrnaseq_pipeline)**
+Full documentation available at: **[https://username.github.io/scrnaseq_pipeline](https://username.github.io/scrnaseq_pipeline)**
 
 - **[Installation Guide](docs/installation.md)** - Detailed setup instructions
 - **[User Manual](docs/manual.md)** - Complete pipeline reference
@@ -378,10 +378,10 @@ If you use this pipeline in your research, please cite:
 
 ```bibtex
 @software{scrnaseq_pipeline,
-  author = {Your Name},
+  author = {Author},
   title = {scRNA-seq Analysis Pipeline},
   year = {2026},
-  url = {https://github.com/yourusername/scrnaseq_pipeline}
+  url = {https://github.com/username/scrnaseq_pipeline}
 }
 ```
 
@@ -402,9 +402,9 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/scrnaseq_pipeline/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/scrnaseq_pipeline/discussions)
-- **Email**: <your.email@example.com>
+- **Issues**: [GitHub Issues](https://github.com/username/scrnaseq_pipeline/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/username/scrnaseq_pipeline/discussions)
+- **Email**: <contact@example.com>
 
 ---
 
@@ -416,7 +416,3 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 - **Snakemake Community** - Workflow management framework
 
 ---
-
----
-
-Built for the single-cell genomics community.

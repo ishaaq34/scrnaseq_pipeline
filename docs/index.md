@@ -69,18 +69,18 @@ If you use this pipeline in your research, please cite:
 
 ```bibtex
 @software{scrnaseq_pipeline,
-  author = {Your Name},
+  author = {Author},
   title = {scRNA-seq Analysis Pipeline},
   year = {2026},
-  url = {https://github.com/yourusername/scrnaseq_pipeline}
+  url = {https://github.com/username/scrnaseq_pipeline}
 }
 ```
 
 ## Getting Help
 
-- **Issues**: Report bugs on [GitHub Issues](https://github.com/yourusername/scrnaseq_pipeline/issues)
-- **Discussions**: Ask questions on [GitHub Discussions](https://github.com/yourusername/scrnaseq_pipeline/discussions)
-- **Email**: Contact the maintainers at <your.email@example.com>
+- **Issues**: Report bugs on [GitHub Issues](https://github.com/username/scrnaseq_pipeline/issues)
+- **Discussions**: Ask questions on [GitHub Discussions](https://github.com/username/scrnaseq_pipeline/discussions)
+- **Email**: Contact the maintainers at <contact@example.com>
 
 ## License
 

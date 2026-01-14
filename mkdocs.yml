@@ -1,10 +1,10 @@
 site_name: scRNA-seq Analysis Pipeline
 site_description: Comprehensive single-cell RNA-seq analysis pipeline with Snakemake
-site_author: Your Name
-site_url: https://yourusername.github.io/scrnaseq_pipeline
+site_author: Author
+site_url: https://username.github.io/scrnaseq_pipeline
 
-repo_name: yourusername/scrnaseq_pipeline
-repo_url: https://github.com/yourusername/scrnaseq_pipeline
+repo_name: username/scrnaseq_pipeline
+repo_url: https://github.com/username/scrnaseq_pipeline
 edit_uri: edit/main/docs/
 
 theme:
@@ -84,6 +84,6 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourusername
+      link: https://github.com/username
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/yourusername
+      link: https://twitter.com/username

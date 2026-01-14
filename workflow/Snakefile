@@ -3,7 +3,7 @@ scRNA-seq Analysis Pipeline - Main Snakefile
 
 A single-cell RNA-seq analysis pipeline using Seurat (R).
 
-Author: Your Name
+Author: Author
 Date: 2026-01-14
 """
 
@@ -57,108 +57,3 @@ rule clean:
         rm -rf .snakemake/
         echo "Cleaned all results"
         """
-        
-        # Clustering
-        "results/clustering/umap_clusters.pdf",
-        "results/clustering/cluster_markers.csv",
-        
-        # Cell type annotation
-        "results/annotation/cell_types.csv",
-        "results/annotation/annotation_umap.pdf",
-        
-        # Differential expression
-        expand("results/differential/{comparison}/de_genes.csv",
-               comparison=config.get("comparisons", [])),
-        
-        # Final report
-        "results/reports/analysis_report.html"
-
-
-rule qc_only:
-    """
-    Run only quality control steps
-    """
-    input:
-        "results/qc/qc_metrics.csv",
-        "results/qc/qc_plots.pdf"
-
-
-rule clustering_only:
-    """
-    Run up to clustering analysis
-    """
-    input:
-        "results/clustering/umap_clusters.pdf",
-        "results/clustering/cluster_markers.csv"
-
-
-rule trajectory:
-    """
-    Perform trajectory/pseudotime analysis
-    """
-    input:
-        "results/trajectory/pseudotime.pdf",
-        "results/trajectory/rna_velocity.pdf"
-
-
-rule clean:
-    """
-    Remove all generated files
-    """
-    shell:
-        """
-        rm -rf results/
-        rm -rf .snakemake/
-        echo "Cleaned all results and Snakemake metadata"
-        """
-
-
-# ============================================================================
-# Workflow Validation
-# ============================================================================
-
-def validate_config():
-    """Validate configuration file"""
-    required_keys = ["samples", "genome", "qc"]
-    for key in required_keys:
-        if key not in config:
-            raise ValueError(f"Missing required config key: {key}")
-    
-    # Validate QC thresholds
-    qc_params = ["min_genes", "max_genes", "max_mito_percent"]
-    for param in qc_params:
-        if param not in config["qc"]:
-            raise ValueError(f"Missing QC parameter: {param}")
-
-validate_config()
-
-
-# ============================================================================
-# Utility Functions
-# ============================================================================
-
-def get_sample_fastqs(wildcards):
-    """Get FASTQ directory for a sample"""
-    row = samples_df[samples_df["sample_id"] == wildcards.sample]
-    return row["fastq_dir"].values[0]
-
-
-def get_sample_condition(wildcards):
-    """Get condition for a sample"""
-    row = samples_df[samples_df["sample_id"] == wildcards.sample]
-    return row["condition"].values[0]
-
-
-def get_comparison_samples(comparison_name):
-    """Get sample lists for a comparison"""
-    for comp in config.get("comparisons", []):
-        if comp["name"] == comparison_name:
-            return comp["group1"], comp["group2"]
-    return [], []
-
-
-# ============================================================================
-# Workflow Report
-# ============================================================================
-
-report: "workflow/report.rst"

@@ -3,7 +3,7 @@
 ## Repository Information
 
 **Repository Name**: scrnaseq_pipeline  
-**Location**: `/Users/rajaishaqnabikhan/.gemini/antigravity/scratch/scrnaseq_pipeline`  
+**Location**: `/path/to/scrnaseq_pipeline`  
 **Version**: 1.0.0  
 **License**: MIT  
 **Created**: 2026-01-14
@@ -361,7 +361,7 @@ MIT License - Free for academic and commercial use with attribution.
 
 ```bash
 # Set as workspace
-cd /Users/rajaishaqnabikhan/.gemini/antigravity/scratch/scrnaseq_pipeline
+cd /path/to/scrnaseq_pipeline
 
 # Begin development
 # 1. Complete remaining analysis scripts

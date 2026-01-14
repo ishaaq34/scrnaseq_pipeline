@@ -209,7 +209,7 @@ visualization:
 # -----------------------------------------------------------------------------
 report:
   title: "scRNA-seq Analysis Report"
-  author: "Your Name"
+  author: "Author"
   date: "auto"
   format: "html" # Options: "html", "pdf"
 
