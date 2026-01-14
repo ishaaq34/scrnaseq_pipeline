@@ -1,0 +1,9 @@
+name: cellranger
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bcl2fastq2
+  - star>=2.7.0
+  # Note: Cell Ranger itself must be downloaded from 10x Genomics
+  # This environment provides supporting tools

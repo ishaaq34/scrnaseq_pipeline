@@ -1,0 +1,94 @@
+# Custom Cell Type Markers
+
+# Define cell type-specific marker genes for annotation
+
+T_cells:
+  - CD3D
+  - CD3E
+  - CD3G
+  - CD8A
+  - CD8B
+  - CD4
+
+CD8_T_cells:
+  - CD8A
+  - CD8B
+  - GZMK
+  - CCL5
+
+CD4_T_cells:
+  - CD4
+  - IL7R
+  - LTB
+
+Regulatory_T_cells:
+  - FOXP3
+  - IL2RA
+  - CTLA4
+
+B_cells:
+  - CD19
+  - MS4A1 # CD20
+  - CD79A
+  - CD79B
+
+Plasma_cells:
+  - MZB1
+  - SDC1 # CD138
+  - JCHAIN
+
+Monocytes:
+  - CD14
+  - LYZ
+  - S100A8
+  - S100A9
+
+Classical_monocytes:
+  - CD14
+  - S100A8
+  - S100A9
+
+Non_classical_monocytes:
+  - FCGR3A # CD16
+  - MS4A7
+
+Dendritic_cells:
+  - FCER1A
+  - CST3
+  - CD1C
+
+Plasmacytoid_DC:
+  - IL3RA
+  - GZMB
+  - SERPINF1
+
+NK_cells:
+  - GNLY
+  - NKG7
+  - NCAM1 # CD56
+  - FCGR3A # CD16
+
+Megakaryocytes:
+  - PPBP
+  - PF4
+  - GP9
+
+Erythrocytes:
+  - HBA1
+  - HBA2
+  - HBB
+
+Endothelial_cells:
+  - PECAM1 # CD31
+  - VWF
+  - CDH5
+
+Fibroblasts:
+  - COL1A1
+  - COL1A2
+  - DCN
+
+Epithelial_cells:
+  - EPCAM
+  - KRT8
+  - KRT18

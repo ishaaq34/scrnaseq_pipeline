@@ -1,0 +1,89 @@
+site_name: scRNA-seq Analysis Pipeline
+site_description: Comprehensive single-cell RNA-seq analysis pipeline with Snakemake
+site_author: Your Name
+site_url: https://yourusername.github.io/scrnaseq_pipeline
+
+repo_name: yourusername/scrnaseq_pipeline
+repo_url: https://github.com/yourusername/scrnaseq_pipeline
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: installation.md
+      - Quick Start: quickstart.md
+      - Configuration: configuration.md
+  - User Guide:
+      - Quality Control: user_guide/qc.md
+      - Normalization: user_guide/normalization.md
+      - Clustering: user_guide/clustering.md
+      - Cell Type Annotation: user_guide/annotation.md
+      - Differential Expression: user_guide/differential.md
+      - Visualization: user_guide/visualization.md
+  - Tutorials:
+      - PBMC 3k Analysis: tutorials/pbmc3k.md
+      - Batch Correction: tutorials/batch_correction.md
+      - Trajectory Analysis: tutorials/trajectory.md
+  - API Reference:
+      - Seurat Scripts: api/seurat.md
+      - Scanpy Scripts: api/scanpy.md
+      - Snakemake Rules: api/rules.md
+  - FAQ: faq.md
+  - Contributing: ../CONTRIBUTING.md
+  - Changelog: ../CHANGELOG.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/yourusername

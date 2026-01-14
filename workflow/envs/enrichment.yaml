@@ -1,0 +1,15 @@
+name: enrichment
+channels:
+  - conda-forge
+  - bioconda
+  - r
+dependencies:
+  - r-base>=4.2.0
+  - bioconductor-clusterprofiler
+  - bioconductor-enrichplot
+  - bioconductor-dose
+  - bioconductor-reactomepa
+  - bioconductor-org.hs.eg.db
+  - bioconductor-org.mm.eg.db
+  - r-ggplot2
+  - r-tidyverse

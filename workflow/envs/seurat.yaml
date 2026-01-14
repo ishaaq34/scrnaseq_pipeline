@@ -1,0 +1,31 @@
+name: seurat
+channels:
+  - conda-forge
+  - bioconda
+  - r
+dependencies:
+  - r-base>=4.2.0
+  - r-seurat>=4.3.0
+  - r-seuratobject
+  - r-signac
+  - bioconductor-singleR
+  - bioconductor-celldex
+  - bioconductor-scater
+  - bioconductor-scran
+  - r-harmony
+  - r-tidyverse
+  - r-ggplot2
+  - r-patchwork
+  - r-cowplot
+  - r-viridis
+  - r-rcolorbrewer
+  - r-pheatmap
+  - r-clusterprofiler
+  - bioconductor-deseq2
+  - r-mast
+  - r-hdf5r
+  - r-matrix
+  - r-rmarkdown
+  - r-knitr
+  - r-dt
+  - r-plotly

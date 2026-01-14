@@ -1,0 +1,254 @@
+# =============================================================================
+# scRNA-seq Pipeline Configuration
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Analysis Framework
+# -----------------------------------------------------------------------------
+framework: "seurat" # Options: "seurat" (R) or "scanpy" (Python)
+
+# -----------------------------------------------------------------------------
+# Sample Information
+# -----------------------------------------------------------------------------
+samples: "config/samples.tsv"
+
+# -----------------------------------------------------------------------------
+# Reference Genome
+# -----------------------------------------------------------------------------
+genome: "GRCh38"
+transcriptome: "resources/genomes/GRCh38"
+
+# Cell Ranger reference
+cellranger_reference: "resources/genomes/refdata-gex-GRCh38-2024-A"
+
+# -----------------------------------------------------------------------------
+# Cell Ranger Parameters
+# -----------------------------------------------------------------------------
+run_cellranger: false # Set to true if starting from FASTQ files
+cellranger:
+  chemistry: "auto" # auto, SC3Pv3, SC5P-PE, SC5P-R2
+  expect_cells: 3000
+  force_cells: null
+  include_introns: false
+
+# -----------------------------------------------------------------------------
+# Quality Control Thresholds
+# -----------------------------------------------------------------------------
+qc:
+  # Gene count filters
+  min_genes: 200 # Minimum genes per cell
+  max_genes: 5000 # Maximum genes per cell (filter potential doublets)
+
+  # UMI count filters
+  min_counts: 500 # Minimum UMI counts per cell
+  max_counts: 25000 # Maximum UMI counts per cell
+
+  # Mitochondrial content
+  max_mito_percent: 20 # Maximum % mitochondrial reads
+
+  # Gene filtering
+  min_cells: 3 # Minimum cells expressing a gene
+
+  # Doublet detection
+  detect_doublets: true
+  expected_doublet_rate: 0.05
+
+# -----------------------------------------------------------------------------
+# Normalization & Scaling
+# -----------------------------------------------------------------------------
+normalization:
+  method: "sctransform" # Options: "lognorm", "sctransform", "scran"
+
+  # Log normalization parameters
+  target_sum: 10000
+
+  # SCTransform parameters
+  sct_vars_to_regress: ["percent_mito"]
+
+  # Highly variable genes
+  n_top_genes: 2000
+
+# -----------------------------------------------------------------------------
+# Batch Correction / Integration
+# -----------------------------------------------------------------------------
+integration:
+  enabled: false
+  method: "harmony" # Options: "harmony", "seurat", "scvi", "combat"
+  batch_key: "batch"
+
+  # Seurat integration
+  seurat_dims: 30
+  seurat_k_filter: 200
+
+# -----------------------------------------------------------------------------
+# Dimensionality Reduction
+# -----------------------------------------------------------------------------
+pca:
+  n_components: 50
+  features: "variable" # Use highly variable genes
+
+umap:
+  n_neighbors: 30
+  min_dist: 0.3
+  n_components: 2
+  metric: "euclidean"
+
+tsne:
+  perplexity: 30
+  n_components: 2
+
+# -----------------------------------------------------------------------------
+# Clustering
+# -----------------------------------------------------------------------------
+clustering:
+  algorithm: "leiden" # Options: "leiden", "louvain"
+  resolution: [0.4, 0.6, 0.8, 1.0, 1.2]
+  n_neighbors: 20
+  n_pcs: 30
+
+# -----------------------------------------------------------------------------
+# Cell Type Annotation
+# -----------------------------------------------------------------------------
+annotation:
+  method: "singleR" # Options: "singleR", "celltypist", "sctype", "manual"
+
+  # Reference dataset
+  reference: "celldex::HumanPrimaryCellAtlasData"
+  # Options:
+  #   - celldex::HumanPrimaryCellAtlasData
+  #   - celldex::BlueprintEncodeData
+  #   - celldex::MonacoImmuneData
+  #   - celldex::DatabaseImmuneCellExpressionData
+
+  # Custom markers (if method = "manual")
+  custom_markers: "resources/annotations/custom_markers.yaml"
+
+  # Confidence threshold
+  min_confidence: 0.5
+
+# -----------------------------------------------------------------------------
+# Marker Gene Detection
+# -----------------------------------------------------------------------------
+markers:
+  method: "wilcox" # Options: "wilcox", "t-test", "logreg"
+  min_pct: 0.25
+  logfc_threshold: 0.25
+  only_pos: true
+  top_n: 10 # Top markers per cluster to report
+
+# -----------------------------------------------------------------------------
+# Differential Expression Analysis
+# -----------------------------------------------------------------------------
+differential:
+  method: "wilcox" # Options: "wilcox", "MAST", "DESeq2", "edgeR"
+  logfc_threshold: 0.25
+  min_pct: 0.1
+  only_pos: false
+
+  # Multiple testing correction
+  adjust_method: "BH" # Benjamini-Hochberg
+
+  # Significance thresholds
+  pval_cutoff: 0.05
+  adj_pval_cutoff: 0.05
+
+# Comparisons to perform
+comparisons:
+  - name: "treated_vs_control"
+    group1: ["sample_treated"]
+    group2: ["sample_control"]
+    cell_type: null # Optional: restrict to specific cell type
+
+  # - name: "timepoint_24h_vs_0h"
+  #   group1: ["sample_24h"]
+  #   group2: ["sample_0h"]
+  #   cell_type: "T_cells"
+
+# -----------------------------------------------------------------------------
+# Pathway Enrichment Analysis
+# -----------------------------------------------------------------------------
+enrichment:
+  enabled: true
+  databases: ["GO_BP", "GO_MF", "GO_CC", "KEGG", "Reactome"]
+  organism: "human" # Options: "human", "mouse"
+  pval_cutoff: 0.05
+  qval_cutoff: 0.2
+
+# -----------------------------------------------------------------------------
+# Trajectory Analysis
+# -----------------------------------------------------------------------------
+trajectory:
+  enabled: false
+  method: "monocle3" # Options: "monocle3", "slingshot", "scvelo"
+
+  # RNA velocity (scVelo)
+  velocity:
+    mode: "stochastic" # Options: "deterministic", "stochastic", "dynamical"
+
+# -----------------------------------------------------------------------------
+# Visualization Parameters
+# -----------------------------------------------------------------------------
+visualization:
+  # Color palettes
+  cluster_colors: "Set3"
+  condition_colors: ["#E64B35", "#4DBBD5", "#00A087", "#3C5488"]
+
+  # Plot dimensions
+  figure_width: 10
+  figure_height: 8
+  dpi: 300
+
+  # UMAP plot features
+  umap_features:
+    - "nCount_RNA"
+    - "nFeature_RNA"
+    - "percent_mito"
+
+  # Genes to highlight
+  feature_genes:
+    - "CD3D" # T cells
+    - "CD19" # B cells
+    - "CD14" # Monocytes
+    - "FCGR3A" # NK cells
+
+# -----------------------------------------------------------------------------
+# Reporting
+# -----------------------------------------------------------------------------
+report:
+  title: "scRNA-seq Analysis Report"
+  author: "Your Name"
+  date: "auto"
+  format: "html" # Options: "html", "pdf"
+
+# -----------------------------------------------------------------------------
+# Computational Resources
+# -----------------------------------------------------------------------------
+resources:
+  cellranger:
+    threads: 8
+    memory_gb: 64
+
+  qc:
+    threads: 4
+    memory_gb: 16
+
+  clustering:
+    threads: 8
+    memory_gb: 32
+
+  differential:
+    threads: 4
+    memory_gb: 16
+
+# -----------------------------------------------------------------------------
+# Output Options
+# -----------------------------------------------------------------------------
+output:
+  save_intermediate: true # Save intermediate objects
+  compression: "gzip" # Compression for output files
+
+  # File formats
+  save_rds: true # R objects
+  save_h5ad: true # AnnData objects
+  save_loom: false # Loom files
+  save_csv: true # CSV tables

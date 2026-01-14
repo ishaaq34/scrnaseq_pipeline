@@ -1,0 +1,5 @@
+sample_id	condition	batch	fastq_dir	notes
+PBMC_ctrl_1	control	batch1	data/fastqs/PBMC_ctrl_1	Healthy donor 1
+PBMC_ctrl_2	control	batch1	data/fastqs/PBMC_ctrl_2	Healthy donor 2
+PBMC_treat_1	treated	batch2	data/fastqs/PBMC_treat_1	Treatment group 1
+PBMC_treat_2	treated	batch2	data/fastqs/PBMC_treat_2	Treatment group 2

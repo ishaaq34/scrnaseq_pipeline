@@ -1,0 +1,80 @@
+# Ignore Snakemake metadata
+.snakemake/
+.snakemake_timestamp
+
+# Ignore results and logs
+results/
+logs/
+benchmarks/
+
+# Ignore conda environments
+.conda/
+.mamba/
+
+# Ignore data files
+data/
+*.h5
+*.h5ad
+*.rds
+*.loom
+
+# Ignore temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ignore R files
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Ignore documentation build
+site/
+docs/_build/
+
+# Ignore test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Ignore large reference files
+resources/genomes/*
+!resources/genomes/.gitkeep
+
+# Ignore Cell Ranger outputs
+cellranger-*/
+
+# Keep example data
+!examples/
