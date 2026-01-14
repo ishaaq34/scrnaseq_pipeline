@@ -72,15 +72,15 @@ If you use this pipeline in your research, please cite:
   author = {RAJ ISHAQ NABI KHAN},
   title = {scRNA-seq Analysis Pipeline},
   year = {2026},
-  url = {https://github.com/username/scrnaseq_pipeline}
+  url = {https://github.com/ishaq7334/scrnaseq_pipeline}
 }
 ```
 
 ## Getting Help
 
-- **Issues**: Report bugs on [GitHub Issues](https://github.com/username/scrnaseq_pipeline/issues)
-- **Discussions**: Ask questions on [GitHub Discussions](https://github.com/username/scrnaseq_pipeline/discussions)
-- **Email**: Contact the maintainers at <contact@example.com>
+- **Issues**: Report bugs on [GitHub Issues](https://github.com/ishaq7334/scrnaseq_pipeline/issues)
+- **Discussions**: Ask questions on [GitHub Discussions](https://github.com/ishaq7334/scrnaseq_pipeline/discussions)
+- **Email**: Contact the maintainers at <ishaaq.raja@gmail.com>
 
 ## License
 

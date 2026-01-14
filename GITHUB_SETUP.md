@@ -164,13 +164,13 @@ Add any other context about the problem here.
 After creating the repository, update these placeholders in README.md:
 
 ```bash
-# Replace YOUR_USERNAME with your actual GitHub username
-sed -i '' 's/username/YOUR_ACTUAL_USERNAME/g' README.md
-sed -i '' 's/contact@example.com/YOUR_EMAIL/g' README.md
+# Replace YOUR_USERNAME with your actual GitHub ishaq7334
+sed -i '' 's/ishaq7334/YOUR_ACTUAL_USERNAME/g' README.md
+sed -i '' 's/ishaaq.raja@gmail.com/YOUR_EMAIL/g' README.md
 
 # Commit changes
 git add README.md
-git commit -m "Update URLs with actual GitHub username"
+git commit -m "Update URLs with actual GitHub ishaq7334"
 git push
 ```
 

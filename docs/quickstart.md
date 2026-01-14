@@ -226,5 +226,5 @@ conda env create -f environment.yaml
 ## Getting Help
 
 - Check the [FAQ](faq.md)
-- Open an issue on [GitHub](https://github.com/username/scrnaseq_pipeline/issues)
-- Join the discussion on [GitHub Discussions](https://github.com/username/scrnaseq_pipeline/discussions)
+- Open an issue on [GitHub](https://github.com/ishaq7334/scrnaseq_pipeline/issues)
+- Join the discussion on [GitHub Discussions](https://github.com/ishaq7334/scrnaseq_pipeline/discussions)

@@ -44,7 +44,7 @@ conda install -n base -c conda-forge mamba
 ### Step 2: Clone the Repository
 
 ```bash
-git clone https://github.com/username/scrnaseq_pipeline.git
+git clone https://github.com/ishaq7334/scrnaseq_pipeline.git
 cd scrnaseq_pipeline
 ```
 

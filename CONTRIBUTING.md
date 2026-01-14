@@ -56,7 +56,7 @@ Enhancement suggestions are welcome! Please create an issue describing:
 
 ```bash
 # Clone your fork
-git clone https://github.com/your-username/scrnaseq_pipeline.git
+git clone https://github.com/your-ishaq7334/scrnaseq_pipeline.git
 cd scrnaseq_pipeline
 
 # Add upstream remote

@@ -107,7 +107,7 @@ scrnaseq_pipeline/
 
 ```bash
 # Clone the repository
-git clone https://github.com/username/scrnaseq_pipeline.git
+git clone https://github.com/ishaq7334/scrnaseq_pipeline.git
 cd scrnaseq_pipeline
 
 # Create conda environment
@@ -328,7 +328,7 @@ comparisons:
 
 ## Documentation
 
-Full documentation available at: **[https://username.github.io/scrnaseq_pipeline](https://username.github.io/scrnaseq_pipeline)**
+Full documentation available at: **[https://ishaq7334.github.io/scrnaseq_pipeline](https://ishaq7334.github.io/scrnaseq_pipeline)**
 
 - **[Installation Guide](docs/installation.md)** - Detailed setup instructions
 - **[User Manual](docs/manual.md)** - Complete pipeline reference
