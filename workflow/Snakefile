@@ -1,36 +1,23 @@
 """
 scRNA-seq Analysis Pipeline - Main Snakefile
-==============================================
 
-A comprehensive single-cell RNA-seq analysis pipeline supporting both
-Seurat (R) and Scanpy (Python) frameworks.
+A single-cell RNA-seq analysis pipeline using Seurat (R).
 
-Author: Raja Khan
+Author: Your Name
 Date: 2026-01-14
 """
 
 import pandas as pd
 from pathlib import Path
 
-# ============================================================================
 # Configuration
-# ============================================================================
-
 configfile: "config/config.yaml"
 
 # Load sample metadata
 samples_df = pd.read_csv(config["samples"], sep="\t")
 SAMPLES = samples_df["sample_id"].tolist()
-CONDITIONS = samples_df["condition"].unique().tolist()
 
-# Analysis framework
-FRAMEWORK = config.get("framework", "seurat")
-
-# ============================================================================
 # Include Rules
-# ============================================================================
-
-include: "rules/cellranger.smk"
 include: "rules/qc.smk"
 include: "rules/normalization.smk"
 include: "rules/clustering.smk"
@@ -38,25 +25,38 @@ include: "rules/annotation.smk"
 include: "rules/differential.smk"
 include: "rules/visualization.smk"
 
-# ============================================================================
 # Target Rules
-# ============================================================================
-
 rule all:
     """
-    Default target: Complete scRNA-seq analysis pipeline
+    Complete scRNA-seq analysis pipeline
     """
     input:
-        # Cell Ranger outputs
-        expand("results/cellranger/{sample}/outs/filtered_feature_bc_matrix.h5",
-               sample=SAMPLES) if config.get("run_cellranger", False) else [],
-        
         # QC outputs
         "results/qc/qc_metrics.csv",
         "results/qc/qc_plots.pdf",
         
         # Processed data
-        "results/processed/seurat_object.rds" if FRAMEWORK == "seurat" else "results/processed/adata.h5ad",
+        "results/processed/seurat_object.rds",
+        
+        # Clustering
+        "results/clustering/umap_clusters.pdf",
+        "results/clustering/cluster_markers.csv",
+        
+        # Cell type annotation
+        "results/annotation/cell_types.csv",
+        "results/annotation/annotation_umap.pdf"
+
+
+rule clean:
+    """
+    Remove all generated files
+    """
+    shell:
+        """
+        rm -rf results/
+        rm -rf .snakemake/
+        echo "Cleaned all results"
+        """
         
         # Clustering
         "results/clustering/umap_clusters.pdf",

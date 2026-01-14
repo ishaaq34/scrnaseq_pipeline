@@ -20,11 +20,11 @@ A comprehensive, production-ready single-cell RNA-seq analysis pipeline built wi
 - **Pathway Analysis**: GO, KEGG, Reactome enrichment
 - **Trajectory Analysis**: RNA velocity, pseudotime inference
 
-### Interactive Visualizations
+### Visualization
 
-- **Streamlit Dashboard**: Real-time QC monitoring and exploration
-- **Automated Reports**: HTML reports with publication-ready figures
-- **MkDocs Documentation**: Comprehensive tutorials and API reference
+- Publication-ready plots (PDF/PNG)
+- QC metrics and statistics (CSV)
+- Standard scRNA-seq visualizations (UMAP, heatmaps, violin plots)
 
 ### Dual Framework Support
 
@@ -172,18 +172,16 @@ snakemake --cores 8 --use-conda
 
 # Run on HPC cluster (SLURM)
 snakemake --profile config/slurm --jobs 100
-
-# Generate HTML report
-snakemake --report results/reports/analysis_report.html
 ```
 
-### Launch Interactive Dashboard
+### View Results
 
 ```bash
-# Start Streamlit dashboard
-streamlit run dashboard/app.py
+# View QC plots
+open results/qc/qc_plots.pdf
 
-# Open browser to http://localhost:8501
+# View UMAP clustering
+open results/clustering/umap_clusters.pdf
 ```
 
 ---
