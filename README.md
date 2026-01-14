@@ -2,7 +2,6 @@
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥7.0.0-brightgreen.svg)](https://snakemake.github.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Documentation](https://img.shields.io/badge/docs-mkdocs-blue.svg)](https://www.mkdocs.org/)
 
 A comprehensive, production-ready single-cell RNA-seq analysis pipeline built with Snakemake, featuring automated quality control, cell type annotation, differential expression analysis, and interactive visualizations.
 
