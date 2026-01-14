@@ -350,10 +350,6 @@ snakemake --cores 2 --use-conda --directory examples/pbmc3k
 
 ---
 
-## Contributing
-
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
 ### Development Setup
 
 ```bash
@@ -372,19 +368,6 @@ flake8 scripts/
 
 ---
 
-## Citation
-
-If you use this pipeline in your research, please cite:
-
-```bibtex
-@software{scrnaseq_pipeline,
-  author = {Author},
-  title = {scRNA-seq Analysis Pipeline},
-  year = {2026},
-  url = {https://github.com/username/scrnaseq_pipeline}
-}
-```
-
 Key Dependencies:
 
 - Cell Ranger (10x Genomics)
@@ -399,12 +382,6 @@ Key Dependencies:
 This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
-
-## Support
-
-- **Issues**: [GitHub Issues](https://github.com/username/scrnaseq_pipeline/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/username/scrnaseq_pipeline/discussions)
-- **Email**: <contact@example.com>
 
 ---
 

@@ -3,7 +3,7 @@ scRNA-seq Analysis Pipeline - Main Snakefile
 
 A single-cell RNA-seq analysis pipeline using Seurat (R).
 
-Author: Author
+Author: RAJ ISHAQ NABI KHAN
 Date: 2026-01-14
 """
 

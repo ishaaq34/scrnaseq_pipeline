@@ -209,7 +209,7 @@ visualization:
 # -----------------------------------------------------------------------------
 report:
   title: "scRNA-seq Analysis Report"
-  author: "Author"
+  author: "RAJ ISHAQ NABI KHAN"
   date: "auto"
   format: "html" # Options: "html", "pdf"
 

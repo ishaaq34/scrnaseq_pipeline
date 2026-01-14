@@ -69,7 +69,7 @@ If you use this pipeline in your research, please cite:
 
 ```bibtex
 @software{scrnaseq_pipeline,
-  author = {Author},
+  author = {RAJ ISHAQ NABI KHAN},
   title = {scRNA-seq Analysis Pipeline},
   year = {2026},
   url = {https://github.com/username/scrnaseq_pipeline}
