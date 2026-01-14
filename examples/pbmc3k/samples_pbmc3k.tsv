@@ -1,0 +1,2 @@
+sample_id	condition	batch	data_path	notes
+pbmc3k	healthy	batch1	data/cellranger_output/hg19	10x Genomics PBMC 3k dataset

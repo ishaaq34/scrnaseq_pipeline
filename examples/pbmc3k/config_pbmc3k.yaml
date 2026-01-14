@@ -1,0 +1,135 @@
+# PBMC 3k Example Configuration
+# This configuration is optimized for the 10x Genomics PBMC 3k dataset
+
+# Analysis framework
+framework: "seurat" # Options: "seurat" or "scanpy"
+
+# Sample information
+samples: "samples_pbmc3k.tsv"
+
+# Reference genome
+genome: "GRCh38"
+transcriptome: "../../resources/genomes/GRCh38"
+
+# Cell Ranger (not needed for this example - using pre-processed data)
+run_cellranger: false
+
+# Quality Control Thresholds
+# These are optimized for the PBMC 3k dataset
+qc:
+  min_genes: 200
+  max_genes: 2500
+  min_counts: 500
+  max_counts: 15000
+  max_mito_percent: 5 # PBMCs typically have low mitochondrial content
+  min_cells: 3
+  detect_doublets: true
+  expected_doublet_rate: 0.05
+
+# Normalization
+normalization:
+  method: "lognorm" # Options: "lognorm", "sctransform"
+  target_sum: 10000
+  n_top_genes: 2000
+
+# Batch Correction (not needed for single-sample dataset)
+integration:
+  enabled: false
+
+# Dimensionality Reduction
+pca:
+  n_components: 50
+
+umap:
+  n_neighbors: 30
+  min_dist: 0.3
+  n_components: 2
+
+# Clustering
+clustering:
+  algorithm: "leiden"
+  resolution: [0.5, 0.8, 1.0]
+  n_neighbors: 20
+  n_pcs: 30
+
+# Cell Type Annotation
+annotation:
+  method: "singleR"
+  reference: "celldex::HumanPrimaryCellAtlasData"
+  min_confidence: 0.5
+
+# Marker Gene Detection
+markers:
+  method: "wilcox"
+  min_pct: 0.25
+  logfc_threshold: 0.25
+  only_pos: true
+  top_n: 10
+
+# Differential Expression
+differential:
+  method: "wilcox"
+  logfc_threshold: 0.25
+  min_pct: 0.1
+  pval_cutoff: 0.05
+  adj_pval_cutoff: 0.05
+
+# No comparisons for single-sample dataset
+comparisons: []
+
+# Pathway Enrichment
+enrichment:
+  enabled: true
+  databases: ["GO_BP", "KEGG"]
+  organism: "human"
+  pval_cutoff: 0.05
+
+# Visualization
+visualization:
+  cluster_colors: "Set3"
+  figure_width: 10
+  figure_height: 8
+  dpi: 300
+
+  umap_features:
+    - "nCount_RNA"
+    - "nFeature_RNA"
+    - "percent_mito"
+
+  feature_genes:
+    - "CD3D" # T cells
+    - "CD8A" # CD8+ T cells
+    - "CD4" # CD4+ T cells
+    - "MS4A1" # B cells
+    - "CD14" # Monocytes
+    - "FCGR3A" # FCGR3A+ Monocytes
+    - "GNLY" # NK cells
+    - "FCER1A" # Dendritic cells
+
+# Reporting
+report:
+  title: "PBMC 3k Analysis Report"
+  author: "scRNA-seq Pipeline"
+  format: "html"
+
+# Resources
+resources:
+  qc:
+    threads: 2
+    memory_gb: 8
+
+  clustering:
+    threads: 4
+    memory_gb: 16
+
+  differential:
+    threads: 2
+    memory_gb: 8
+
+# Output
+output:
+  save_intermediate: true
+  compression: "gzip"
+  save_rds: true
+  save_h5ad: true
+  save_csv: true

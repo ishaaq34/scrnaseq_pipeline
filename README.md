@@ -251,6 +251,38 @@ snakemake trajectory --cores 8 --use-conda
 
 ---
 
+## Example Datasets
+
+The repository includes ready-to-use example datasets for testing and learning:
+
+### PBMC 3k Dataset
+
+**Source**: 10x Genomics Public Datasets  
+**URL**: <https://support.10xgenomics.com/single-cell-gene-expression/datasets/1.1.0/pbmc3k>  
+**Description**: 2,700 Peripheral Blood Mononuclear Cells from a Healthy Donor  
+**Size**: ~20 MB (compressed)
+
+**Quick Start**:
+
+```bash
+cd examples/pbmc3k
+python download_data.py  # Downloads from 10x Genomics
+bash run_analysis.sh     # Runs complete pipeline
+```
+
+**What's Included**:
+
+- Automated download script
+- Pre-configured analysis parameters
+- Expected results documentation
+- Complete tutorial walkthrough
+
+See `examples/README.md` for more datasets and detailed instructions.
+
+---
+
+---
+
 ## Advanced Usage
 
 ### Custom Cell Type Markers
